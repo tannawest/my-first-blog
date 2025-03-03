@@ -14,7 +14,13 @@
     <header class="page-header">
         <div class="container">
             <a href="{% url 'post_new' %}" class="top-menu">
-                <!-- Changed this line to use img tag for static SVG -->
+                {% include './icons/file-earmark-plus.svg' %}
+                </a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu">
+                    {% include './icons/file-earmark-plus.svg' %}
+                </a>
+            {% endif %}
                 <img src="{% static 'blog/icons/file-earmark-plus.svg' %}" alt="File Icon">
             </a>
             <h1><a href="/">Tannas Blog</a></h1>
